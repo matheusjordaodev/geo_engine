@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from .models import MenuEntry
+#from .models import MenuEntry
 
 
 def login_view(request):
@@ -18,8 +18,8 @@ def login_view(request):
 
 
 
-def home(request):
-    menu_entries = MenuEntry.objects.all()
+#def home(request):
+#    menu_entries = MenuEntry.objects.all()
     
   
     

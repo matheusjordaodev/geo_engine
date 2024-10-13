@@ -1,10 +1,11 @@
 from django.contrib import admin
-from .models import User
-from .models import MenuEntry
+from .models.usuario import User
+#from models.menu import MenuEntry
+
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'cpf', 'age', 'date_created', 'last_login')
+    list_display = ('username',  'last_login')
     search_fields = ('username', 'cpf')
 
 
-admin.site.register(MenuEntry)
+#admin.site.register(MenuEntry)

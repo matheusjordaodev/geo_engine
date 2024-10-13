@@ -126,3 +126,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL = 'app.User'  # Apontando para o modelo de usuário criado
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'geotudo',
+        'USER': 'postgres',
+        'PASSWORD': '24179512',
+        'HOST': 'localhost',
+        'PORT': '5433',
+    }
+}
