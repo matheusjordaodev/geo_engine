@@ -17,10 +17,23 @@ def login_view(request):
     return render(request, 'login.html')
 
 
+from django.shortcuts import render, redirect
+from .models.forms import UserCreationForm
 
-#def home(request):
-#    menu_entries = MenuEntry.objects.all()
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            # Definir a senha corretamente
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            return redirect('login')  # Redirecione para a página de login ou outra página
+    else:
+        form = UserCreationForm()
     
-  
-    
-    return render(request, 'home.html', {'menu_entries': menu_entries})
+    return render(request, 'register.html', {'form': form})
+
+def home(request):
+    return render(request, 'home.html')
